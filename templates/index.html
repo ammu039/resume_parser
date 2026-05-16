@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>AI Resume Parser</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        input[type="file"] {
+            margin: 20px;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            margin-top: 40px;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .result p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Resume Parser</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <input type="file" name="resume" required>
+
+        <br>
+
+        <button type="submit">Upload Resume</button>
+
+    </form>
+
+    {% if data %}
+
+    <div class="result">
+
+        <h2>Extracted Information</h2>
+
+        <p><strong>Name:</strong> {{ data.name }}</p>
+
+        <p><strong>Email:</strong> {{ data.email }}</p>
+
+        <p><strong>Phone:</strong> {{ data.phone }}</p>
+
+        <p><strong>Skills:</strong> {{ data.skills }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
